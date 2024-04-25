@@ -18,4 +18,40 @@ public class Board {
             this.cells.add(row);
         }
     }
+
+    public List<List<Cell>> getCells() {
+        return this.cells;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public Cell getCell(Integer row, Integer column) {
+        return this.cells.get(row).get(column);
+    }
+
+
+    public void setCell(Integer row, Integer column, Player player) {
+        this.cells.get(row).get(column).setPlayer(player);
+    }
+
+
+    public void printBaord() {
+        for(List<Cell> row: this.cells){
+            for(Cell cell: row){
+                if(cell.getState().equals(CellState.EMPTY)){
+                    System.out.print("| -- |");
+                }
+                else{
+                    System.out.print("| " + cell.getPlayer().getSymbol().getCharacter() + " |");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public Board getBoard() {
+        return this;
+    }
 }

@@ -4,17 +4,13 @@ public class Cell {
     private Integer row;
     private Integer column;
     private Player player;
-    private cellState state;
-    private enum cellState {
-        EMPTY,
-        FILLED
-    }
+    private CellState state;
 
 
     public Cell(Integer row, Integer column) {
         this.row = row;
         this.column = column;
-        this.player = null;
+        this.state = CellState.EMPTY;
     }
 
     public void setPlayer(Player player) {
@@ -34,6 +30,14 @@ public class Cell {
     }
 
     public Boolean isEmpty() {
-        return this.state == cellState.EMPTY;
+        return this.state == CellState.EMPTY;
+    }
+
+    public void setState(CellState state) {
+        this.state = state;
+    }
+
+    public CellState getState() {
+        return this.state;
     }
 }
